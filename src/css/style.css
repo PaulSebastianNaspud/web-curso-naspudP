@@ -1,0 +1,138 @@
+/* ================================
+        RESET / NORMALIZATION
+   ================================ */
+   * {
+    padding: 0;                /* Eliminar el padding de todos los elementos */
+    margin: 0;                 /* Eliminar el margen de todos los elementos */
+    box-sizing: border-box;    /* Incluir padding y border en el tamaño total de los elementos */
+}
+
+/* ================================
+        GLOBAL STYLES
+   ================================ */
+body {
+    height: 100%;              /* Altura del cuerpo al 100% del viewport */
+    width: 100%;               /* Ancho del cuerpo al 100% del viewport */
+    background-color: #f4f4f9; /* Color de fondo de la página */
+}
+
+/* ================================
+    HEADER STYLES
+   ================================ */
+
+/* 
+    Encabezado de la Página
+    Se le asigna un flex de row para pantallas grandes y column para
+    dispositivos móviles o pantallas pequeñas
+*/
+
+h1 {
+    color: white;              /* Color del texto del encabezado */
+    text-align: center;        /* Centrar el texto */
+    padding-top: 35px;        /* Espaciado superior */
+}
+
+.header-page {
+    color: white;              /* Color del texto dentro del encabezado */
+    position: relative;        /* Posicionamiento relativo para superponer elementos */
+    background: radial-gradient(circle, #8A2BE2, #4B0082, #9370DB, #4B0082); /* Degradado radial de fondo */
+}
+
+.p-header-description {
+    font-size: 20px;    /*Tamaño de la funte*/
+}
+
+.header-flex {
+    display: flex;             /* Usar flexbox para la disposición */
+    flex-direction: row;      /* Dirección de los elementos en fila */
+    flex-wrap: wrap;          /* Permitir que los elementos se envuelvan */
+    justify-content: space-between; /* Espaciado entre elementos */
+    align-items: center;      /* Alinear elementos en el centro verticalmente */
+    padding: 85px;            /* Espaciado interno alrededor del encabezado */
+}
+
+.item-flex-description {
+    flex: 3;                  /* Ocupa 3 partes del espacio disponible */
+    flex-shrink: 1;           /* Permitir que el elemento se reduzca si es necesario */
+}
+
+.item-flex-img {
+    margin: 15px;
+    flex: 2;                  /* Ocupa 2 partes del espacio disponible */
+}
+
+.img-header {
+    max-width: 100%;          /* Mantener la imagen dentro del contenedor */
+    height: auto;             /* Mantener la proporción de la imagen */
+}
+
+/* ================================
+        MEDIA QUERIES
+   ================================ */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+        align-items: flex-start; /* Alinear elementos al inicio */
+    }
+
+    /* 
+        Hacer que los elementos ocupen el ancho completo 
+    */
+    .item-flex {
+        width: 100%;             /* Ocupa el 100% del ancho del contenedor */
+        margin: 10px 0;         /* Margen vertical entre elementos */
+    }
+
+    .p-header-description {
+        text-align: center;     /* Centrar el texto de la descripción */
+    }
+
+    nav ul li {
+        display: block;         /* Mostrar los elementos de la lista en bloque */
+        margin: 10px 0;        /* Espaciado vertical entre elementos de la lista */
+    }
+}
+
+/* ================================
+        PAGE HEADER STYLES
+   ================================ */
+.name-page-header {
+    color: #ee0;              /* Color del texto destacado del encabezado */
+    font-weight: bold;        /* Negrita para el texto destacado */
+}
+
+.p-header-description {
+    padding-top: 25px;       /* Espaciado superior para la descripción */
+}
+
+/* ================================
+        NAVIGATION STYLES
+   ================================ */
+
+nav {
+    margin: 15px 0;
+    text-align: center;     /*Centrar los items*/
+}
+nav ul {
+    list-style-type: none;    /* Eliminar viñetas de la lista */
+    padding-top: 25px;        /* Espaciado superior para la lista de navegación */
+}
+
+nav ul li {
+    display: inline;           /* Mostrar elementos de la lista en línea */
+    margin: 0 15px;           /* Espaciado horizontal entre elementos de la lista */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 5px; /* Espaciado en los botones */
+    border-radius: 5px; /* Bordes redondeados en botones */
+    transition: background-color 0.3s; /* Transición suave al hover */
+}
+
+nav ul li a:hover {
+    font-weight:bold ;
+    color: #000;   /*Cambiar el color a black*/
+    background-color: #ee0; /* Color dorado al pasar el ratón */
+}
