@@ -1,0 +1,123 @@
+/* ================================
+    HEADER STYLES
+   ================================ */
+   
+.header-flex {
+    display: flex;             /* Usar flexbox para la disposición */
+    flex-direction: row;      /* Dirección de los elementos en fila */
+    flex-wrap: wrap;          /* Permitir que los elementos se envuelvan */
+    justify-content: space-between; /* Espaciado entre elementos */
+    align-items: center;      /* Alinear elementos en el centro verticalmente */
+    padding: 10px 80px;            /* Espaciado interno alrededor del encabezado */
+}
+
+.item-flex-description {
+    flex: 3;                  /* Ocupa 3 partes del espacio disponible */
+    flex-shrink: 1;           /* Permitir que el elemento se reduzca si es necesario */
+}
+
+.item-flex-img {
+    margin: 15px;
+    flex: 2;                  /* Ocupa 2 partes del espacio disponible */
+}
+
+/* ================================
+        MAIN CONTAINR 
+   ================================ */
+.main-container {
+    width: 100%;         /* Ocupa todo el ancho */
+    height: 100%;        /* Ocupa toda la altura disponible */
+    display: grid;       /* Flexbox (opcional, para organizar contenido interno) */
+}
+
+/* ================================
+        ALL FLEX LIST
+   ================================ */
+
+.section-list-course {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 10px 25px;
+}
+
+.main-list-card {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-items: center; /* Centra las columnas en el contenedor */
+    width: 100%; /* Asegura que el grid ocupe todo el ancho */
+}
+
+.btn-more-less {
+    display: flex;
+    flex-direction: row;
+}
+
+/* ================================ 
+        CARD COURSE ITEM 
+   ================================ */
+
+.card-course-item {
+    display: flex;
+    width: 325px;
+    height: 100%; /* Altura fija */
+    min-height: 350px;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between; /* Espacia el contenido uniformemente */
+    align-items: center; /* Centra el contenido dentro de cada tarjeta */
+}
+
+
+
+.img-course{
+    flex: 3;
+    width: 100%; /* Imagen ocupa todo el ancho disponible */
+    height: 35px; 
+}
+
+.detail-course {
+    flex: 1;
+}
+
+   
+/* ================================
+        FOOTER 
+   ================================ */
+   
+.footer-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ================================
+        MEDIA QUERIES
+   ================================ */
+   @media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+        align-items: flex-start; /* Alinear elementos al inicio */
+    }
+
+    /* 
+        Hacer que los elementos ocupen el ancho completo 
+    */
+    .item-flex {
+        width: 100%;             /* Ocupa el 100% del ancho del contenedor */
+        margin: 10px 0;         /* Margen vertical entre elementos */
+    }
+
+    .p-header-description {
+        text-align: center;     /* Centrar el texto de la descripción */
+    }
+
+    nav ul li {
+        display: block;         /* Mostrar los elementos de la lista en bloque */
+        margin: 10px 0;        /* Espaciado vertical entre elementos de la lista */
+    }
+}

@@ -20,12 +20,6 @@ body {
     HEADER STYLES
    ================================ */
 
-/* 
-    Encabezado de la Página
-    Se le asigna un flex de row para pantallas grandes y column para
-    dispositivos móviles o pantallas pequeñas
-*/
-
 h1 {
     color: white;              /* Color del texto del encabezado */
     text-align: center;        /* Centrar el texto */
@@ -35,30 +29,11 @@ h1 {
 .header-page {
     color: white;              /* Color del texto dentro del encabezado */
     position: relative;        /* Posicionamiento relativo para superponer elementos */
-    background: radial-gradient(circle, #8A2BE2, #4B0082, #9370DB, #4B0082); /* Degradado radial de fondo */
+    background: radial-gradient(circle, #00509d, #003f88,  #00296b); /* Degradado radial de fondo */
 }
 
 .p-header-description {
     font-size: 20px;    /*Tamaño de la funte*/
-}
-
-.header-flex {
-    display: flex;             /* Usar flexbox para la disposición */
-    flex-direction: row;      /* Dirección de los elementos en fila */
-    flex-wrap: wrap;          /* Permitir que los elementos se envuelvan */
-    justify-content: space-between; /* Espaciado entre elementos */
-    align-items: center;      /* Alinear elementos en el centro verticalmente */
-    padding: 85px;            /* Espaciado interno alrededor del encabezado */
-}
-
-.item-flex-description {
-    flex: 3;                  /* Ocupa 3 partes del espacio disponible */
-    flex-shrink: 1;           /* Permitir que el elemento se reduzca si es necesario */
-}
-
-.item-flex-img {
-    margin: 15px;
-    flex: 2;                  /* Ocupa 2 partes del espacio disponible */
 }
 
 .img-header {
@@ -67,43 +42,123 @@ h1 {
 }
 
 /* ================================
-        MEDIA QUERIES
-   ================================ */
-@media (max-width: 768px) {
-    .header-flex {
-        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
-        align-items: flex-start; /* Alinear elementos al inicio */
-    }
-
-    /* 
-        Hacer que los elementos ocupen el ancho completo 
-    */
-    .item-flex {
-        width: 100%;             /* Ocupa el 100% del ancho del contenedor */
-        margin: 10px 0;         /* Margen vertical entre elementos */
-    }
-
-    .p-header-description {
-        text-align: center;     /* Centrar el texto de la descripción */
-    }
-
-    nav ul li {
-        display: block;         /* Mostrar los elementos de la lista en bloque */
-        margin: 10px 0;        /* Espaciado vertical entre elementos de la lista */
-    }
-}
-
-/* ================================
         PAGE HEADER STYLES
    ================================ */
 .name-page-header {
-    color: #ee0;              /* Color del texto destacado del encabezado */
+    color: #fdc500;              /* Color del span texto destacado*/
     font-weight: bold;        /* Negrita para el texto destacado */
 }
 
 .p-header-description {
+    text-align: justify;    /*Texto justificado*/
     padding-top: 25px;       /* Espaciado superior para la descripción */
 }
+
+
+/* ================================
+        CARD COURSE
+   ================================ */
+
+.main-list-card {
+    background-color: #ddd;
+    border-radius: 10px;
+    padding: 15px 0;
+    margin: 10px;
+}
+
+.section-title {
+    font-size: 24px; /* Tamaño de fuente para el título */
+    color: #333; /* Color del texto */
+    margin-bottom: 10px; /* Espaciado debajo del título */
+    text-align: center; /* Centrar el título */
+}
+
+.section-description {
+    font-size: 16px; /* Tamaño de fuente para la descripción */
+    color: #666; /* Color del texto para la descripción */
+    margin-bottom: 20px; /* Espaciado debajo de la descripción */
+    text-align: center; /* Centrar la descripción */
+}
+
+.highlight {
+    color: #00296b; /* Color dorado para el texto resaltado */
+    font-weight: bold; /* Negrita para el texto resaltado */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra de texto para un efecto de profundidad */
+}
+
+.card-course-item {
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    background-color: #fff; /* Color de fondo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aumentar la sombra para mayor visibilidad */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.card-course-item:hover {
+    transform: translateY(-10px); /* Eleva la tarjeta al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Incrementa la sombra al hacer hover */
+}
+
+.img-course {
+    border-radius: 8px; /* Redondea la imagen según el contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsión */
+    margin-bottom: 10px; /* Espacio inferior entre la imagen y el resto del contenido */
+}
+
+/* ================================
+        Buton
+   ================================ */
+/* Clase compartida para animaciones en botones y enlaces */
+.btn-animacion {
+    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves para transformaciones y sombras */
+}
+
+/* Estilos para los botones */
+/* Animación de pulsación */
+@keyframes pulse {
+    0% {
+        transform: translateY(-3px) scale(1.05); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-5px) scale(1.1); /* Escala y desplaza hacia arriba un poco más */
+    }
+    100% {
+        transform: translateY(-3px) scale(1.05); /* Vuelve a la posición inicial */
+    }
+}
+
+/* Clase compartida para animaciones en botones y enlaces */
+.btn-animacion {
+    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves para transformaciones y sombras */
+}
+
+/* Estilos para los botones */
+.btn-load {
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno (arriba-abajo, izquierda-derecha) */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    max-width: 500px; /* Ancho máximo del botón */
+    margin: 10px auto; /* Centrar horizontalmente y añadir espacio arriba y abajo */
+    position: relative; /* Necesario para el efecto de sombra */
+}
+
+/* Estilo al pasar el ratón en el botón */
+.btn-animacion:hover {
+    animation: pulse 0.6s ease-in-out infinite; /* Añadir efecto de pulsación al pasar el ratón */
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5); /* Añade sombra para dar un efecto de elevación */
+}
+
+/* Efecto de clic en el botón */
+.btn-animacion:active {
+    transform: scale(0.95); /* Reduce el tamaño del botón al hacer clic */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Cambia la sombra al hacer clic */
+}
+
 
 /* ================================
         NAVIGATION STYLES
@@ -113,6 +168,7 @@ nav {
     margin: 15px 0;
     text-align: center;     /*Centrar los items*/
 }
+
 nav ul {
     list-style-type: none;    /* Eliminar viñetas de la lista */
     padding-top: 25px;        /* Espaciado superior para la lista de navegación */
@@ -123,16 +179,65 @@ nav ul li {
     margin: 0 15px;           /* Espaciado horizontal entre elementos de la lista */
 }
 
+/* Estilos para enlaces en el menú de navegación */
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 5px; /* Espaciado en los botones */
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    padding: 8px 2px; /* Espaciado en los botones */
     border-radius: 5px; /* Bordes redondeados en botones */
-    transition: background-color 0.3s; /* Transición suave al hover */
+    position: relative; /* Necesario para el efecto de sombra */
 }
 
+/* Estilo al pasar el ratón en los enlaces del menú */
 nav ul li a:hover {
-    font-weight:bold ;
-    color: #000;   /*Cambiar el color a black*/
-    background-color: #ee0; /* Color dorado al pasar el ratón */
+    animation: pulse 0.6s ease-in-out infinite; /* Añadir efecto de pulsación al pasar el ratón */
+    font-weight: bold; /* Negrita al pasar el ratón */
+    color: #000; /* Cambiar el color a negro */
+    background-color: #fdc500; /* Color dorado al pasar el ratón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Añadir sombra para dar efecto de elevación */
 }
+
+
+/* ================================
+        FOOTER STYLES
+   ================================ */
+
+.footer {
+    background-color: #00296b; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
+
+.footer-copy p {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
