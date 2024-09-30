@@ -1,7 +1,7 @@
 /* ================================
         RESET / NORMALIZATION
    ================================ */
-   * {
+* {
     padding: 0;                /* Eliminar el padding de todos los elementos */
     margin: 0;                 /* Eliminar el margen de todos los elementos */
     box-sizing: border-box;    /* Incluir padding y border en el tamaño total de los elementos */
@@ -27,6 +27,7 @@ h1 {
 }
 
 .header-page {
+    animation: fadeInUp 1s ease forwards;
     color: white;              /* Color del texto dentro del encabezado */
     position: relative;        /* Posicionamiento relativo para superponer elementos */
     background: radial-gradient(circle, #00509d, #003f88,  #00296b); /* Degradado radial de fondo */
@@ -54,10 +55,16 @@ h1 {
     padding-top: 25px;       /* Espaciado superior para la descripción */
 }
 
-
+/* ================================
+        Main-Container
+   ================================ */
+.main-container {
+    animation: fadeInUp 1s ease forwards;
+}
 /* ================================
         CARD COURSE
    ================================ */
+
 
 .main-list-card {
     background-color: #ddd;
@@ -87,12 +94,11 @@ h1 {
 }
 
 .card-course-item {
-    border: 1px solid #ddd; /* Borde sutil */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 15px; /* Espaciado interno */
-    background-color: #fff; /* Color de fondo */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aumentar la sombra para mayor visibilidad */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    position: relative; /* Asegura que el botón se mantenga dentro de la tarjeta */
 }
 
 .card-course-item:hover {
@@ -109,6 +115,14 @@ h1 {
 /* ================================
         Buton
    ================================ */
+
+.detail-button {
+    margin: 10px 0; /* Espacio alrededor del botón */
+    padding: 8px 16px; /* Relleno del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    /* Agrega más estilos según sea necesario */
+}
+
 /* Clase compartida para animaciones en botones y enlaces */
 .btn-animacion {
     transition: transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves para transformaciones y sombras */
@@ -135,7 +149,7 @@ h1 {
 
 /* Estilos para los botones */
 .btn-load {
-    background-color: #007bff; /* Color de fondo */
+    background-color: #00296b; /* Color de fondo */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -199,6 +213,73 @@ nav ul li a:hover {
 
 
 /* ================================
+    FORM-ADD-COURSE
+   ================================ */
+
+   .course-registration {
+    background-color: #f9f9f9; /* Fondo suave */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px; /* Espaciado interno */
+    max-width: 600px; /* Limitar ancho del formulario */
+    margin: 0 auto; /* Centrar en la página */
+}
+
+.course-registration h2 {
+    text-align: center; /* Centrar el título */
+    font-size: 24px; /* Tamaño de fuente más grande */
+    margin-bottom: 20px; /* Espaciado debajo del título */
+    color: #333; /* Color de texto */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espaciado entre campos */
+}
+
+.form-group label {
+    display: block; /* Colocar el label en una línea independiente */
+    font-size: 14px; /* Tamaño de fuente adecuado para etiquetas */
+    font-weight: bold; /* Destacar etiquetas */
+    margin-bottom: 5px; /* Espaciado entre el label y el input */
+    color: #555; /* Color gris para texto */
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de texto */
+    border: 1px solid #ccc; /* Borde de campo */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
+    transition: border-color 0.3s ease; /* Transición suave */
+}
+
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+    border-color: #007bff; /* Cambia el color del borde al hacer focus */
+    outline: none; /* Elimina el outline del navegador */
+}
+
+textarea {
+    resize: vertical; /* Permitir que el textarea cambie su tamaño verticalmente */
+    min-height: 100px; /* Altura mínima del textarea */
+}
+
+select {
+    background-color: #fff; /* Fondo blanco */
+    -webkit-appearance: none; /* Elimina la apariencia predeterminada del select */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-group select {
+    cursor: pointer; /* Cambia el cursor al pasar sobre el select */
+}
+
+/* ================================
         FOOTER STYLES
    ================================ */
 
@@ -239,5 +320,68 @@ nav ul li a:hover {
 .footer-copy p {
     margin-top: 20px;
     font-size: 12px;
+}
+
+/* ================================
+        ABOUT COURSE
+   ================================ */
+.about-courses {
+    text-align: left;
+    margin: 60px auto;
+    padding: 0 20px;
+    max-width: 900px;
+    animation: fadeInUp 1s ease forwards;
+
+}
+
+.about-courses h2 {
+    font-size: 2.2rem;
+    color: #343a40;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards; 
+}
+
+.about-courses p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: justify;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards; /* Aplicación de la animación */
+    animation-delay: 0.2s; /* Retraso en la animación */
+}
+
+.about-courses img.about-image {
+    width: 100%; /* Ajusta el ancho al contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    margin: 30px 0; /* Espaciado superior e inferior */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15); /* Sombra */
+    transform: translateY(20px); /* Desplazamiento inicial */
+    animation: fadeIn 0.6s forwards; /* Animación de aparición */
+    animation-delay: 0.4s; /* Retraso en la animación */
+}
+
+.about-courses img.about-image:hover {
+    transform: scale(1.05); /* Zoom al pasar el ratón */
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+/* Definición de la animación fadeInUp */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Comienza desplazado hacia abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición normal */
+    }
 }
 

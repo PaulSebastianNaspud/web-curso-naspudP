@@ -12,7 +12,7 @@
 }
 
 .item-flex-description {
-    flex: 3;                  /* Ocupa 3 partes del espacio disponible */
+    flex: 3;                  /* Ocupa 1 partes del espacio disponible */
     flex-shrink: 1;           /* Permitir que el elemento se reduzca si es necesario */
 }
 
@@ -25,10 +25,28 @@
         MAIN CONTAINR 
    ================================ */
 .main-container {
-    width: 100%;         /* Ocupa todo el ancho */
-    height: 100%;        /* Ocupa toda la altura disponible */
-    display: grid;       /* Flexbox (opcional, para organizar contenido interno) */
+    width: 100%;                /* Ocupa todo el ancho disponible */
+    height: 100%;               /* Ocupa toda la altura disponible */
+    display: grid;              /* Usamos Grid layout */
+    grid-template-columns: 3fr 1fr;  /* 3 partes del contenido principal y 1 parte del lateral en pantallas grandes */
+    gap: 20px;                  /* Espacio entre columnas */
+    padding: 20px;              /*Aliner los item horizontalmente*/
+    justify-items: center;
+    box-sizing: border-box;     /* Incluir el padding en el ancho total */
 }
+
+
+
+/* ================================
+        CONTAINER ADD COURSE
+   ================================ */
+.container-add-course {
+    grid-row: 1 / span 3;             /* Ocupa varias filas en pantallas grandes */
+    grid-column-start: 2;             /* Colocado en la segunda columna */
+}
+
+
+
 
 /* ================================
         ALL FLEX LIST
@@ -44,8 +62,8 @@
 
 .main-list-card {
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px; /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px; /* Espacio entre las tarjetas */
     justify-items: center; /* Centra las columnas en el contenedor */
     width: 100%; /* Asegura que el grid ocupe todo el ancho */
 }
@@ -61,11 +79,10 @@
 
 .card-course-item {
     display: flex;
-    width: 325px;
-    height: 100%; /* Altura fija */
+    width: 300px;
+    height: 100%; 
     min-height: 350px;
     flex-direction: column;
-    gap: 10px;
     justify-content: space-between; /* Espacia el contenido uniformemente */
     align-items: center; /* Centra el contenido dentro de cada tarjeta */
 }
@@ -82,7 +99,13 @@
     flex: 1;
 }
 
-   
+/* ================================
+        LAST 5 ITEM
+   ================================ */
+.last-item {
+    display: grid;
+    flex-direction: row;
+}
 /* ================================
         FOOTER 
    ================================ */
@@ -98,7 +121,7 @@
 /* ================================
         MEDIA QUERIES
    ================================ */
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
     .header-flex {
         flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
         align-items: flex-start; /* Alinear elementos al inicio */
@@ -120,4 +143,19 @@
         display: block;         /* Mostrar los elementos de la lista en bloque */
         margin: 10px 0;        /* Espaciado vertical entre elementos de la lista */
     }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;   /*Una sola Column*/
+        gap: 10px; /* Reduce el espacio entre columnas */
+    }
+    
+    .container-add-course {
+        grid-row: auto;                  /* Ajusta el tamaño de la fila automáticamente */
+        grid-column-start: auto;            /* Mantén en la segunda columna */
+    }
+    
+
+
 }

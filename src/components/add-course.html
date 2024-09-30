@@ -1,0 +1,50 @@
+<section class="course-registration">
+    <h2>Registrar Nuevo Curso</h2>
+    <form id="course-form">
+        <div class="form-group">
+            <label for="course-name">Nombre del Curso:</label>
+            <input type="text" id="course-name" name="course-name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="course-category">Categoría:</label>
+            <select id="course-category" name="course-category" required>
+                <option value="" disabled selected>Selecciona una categoría</option>
+                <option value="Gestión">Gestión</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Ciberseguridad">Ciberseguridad</option>
+                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                <option value="Desarrollo Móvil">Desarrollo Móvil</option>
+                <option value="Diseño">Diseño</option>
+                <option value="Programación">Programación</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="course-start-date">Fecha de Inicio:</label>
+            <input type="date" id="course-start-date" name="course-start-date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="course-duration">Duración del Curso:</label>
+            <input type="text" id="course-duration" name="course-duration" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="teaches-name">Nombre del Instructor:</label>
+            <input type="text" id="teaches-name" name="teaches-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="course-description">Descripción (opcional):</label>
+            <textarea id="course-description" name="course-description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="course-img">Imagen del Curso (URL, opcional):</label>
+            <input type="url" id="course-img" name="course-img">
+        </div>
+
+        <button type="submit" class="btn-load btn-animacion">Registrar Curso</button>
+    </form>
+</section>
