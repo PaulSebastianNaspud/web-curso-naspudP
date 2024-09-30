@@ -4,13 +4,14 @@ export async function loadList() {
     let currentIndex = 0; // Índice actual de cursos
     const itemsPerPage = 8; // Número de cursos a mostrar por vez
     let cardTemplate = ''; // Variable para almacenar la plantilla de la tarjeta
+    let displayedCourses = []; // Array para almacenar las tarjetas mostradas
 
     // Función para cargar la plantilla de la tarjeta
     async function loadCards() {
         try {
             const response = await fetch("./src/components/card-course.html");
             cardTemplate = await response.text(); // Almacena la plantilla de la tarjeta
-            const cardContainer = document.getElementById("grip-all-card"); 
+            const cardContainer = document.getElementById("grip-all-card");
             const courses = Controller.getCourses(); // Obtiene la lista de cursos
 
             // Mostrar los cursos iniciales
@@ -25,6 +26,9 @@ export async function loadList() {
     // Función para mostrar cursos en la página
     function displayCourses(courses, container) {
         const coursesToDisplay = courses.slice(currentIndex, currentIndex + itemsPerPage);
+
+        // Agregar los cursos mostrados al array
+        displayedCourses.push(...coursesToDisplay);
 
         coursesToDisplay.forEach(course => {
             const newCard = document.createElement('div');
@@ -76,7 +80,7 @@ export async function loadList() {
         currentIndex += itemsPerPage; // Actualiza el índice
     }
 
-    // Función para mostrar/ocultar botones
+    // Función para mostrar/ocultar detalles del curso
     function toggleCourseDetails(button, durationElement, startDateElement, categoryElement) {
         // Alternar la visibilidad de los elementos
         if (durationElement.style.display === "none") {
@@ -91,6 +95,42 @@ export async function loadList() {
             button.textContent = "Mostrar Detalles"; // Cambiar el texto del botón
         }
     }
+
+    // Función para manejar la carga y eliminación de cursos
+    function handleLoadMore(container, totalCourses) {
+        const loadMoreButton = document.getElementById("load-more");
+        const loadLessButton = document.getElementById("load-less");
+
+        loadMoreButton.onclick = () => {
+            displayCourses(Controller.getCourses(), container);
+            updateButtons(totalCourses);
+        };
+
+        loadLessButton.onclick = () => {
+            removeLastCourses(container, itemsPerPage); // Eliminar el mismo número que se mostró
+            updateButtons(totalCourses);
+        };
+    }
+
+    // Función para eliminar los últimos cursos mostrados
+    function removeLastCourses(container, numToRemove) {
+        for (let i = 0; i < numToRemove && container.firstChild; i++) {
+            container.removeChild(container.lastChild); // Elimina el último hijo
+        }
+        currentIndex -= numToRemove; // Actualiza el índice
+    }
+
+    // Función para mostrar/ocultar botones
+    function updateButtons(totalCourses) {
+        const loadMoreButton = document.getElementById("load-more");
+        const loadLessButton = document.getElementById("load-less");
+
+        loadMoreButton.style.display = currentIndex < totalCourses ? "block" : "none";
+        loadLessButton.style.display = displayedCourses.length > 0 ? "block" : "none"; // Mostrar "Mostrar menos" si hay cursos mostrados
+    }
+
     // Cargar cursos iniciales
     await loadCards(); // Cargar las tarjetas
+    const cardContainer = document.getElementById("grip-all-card");
+    handleLoadMore(cardContainer, Controller.getCourses().length); // Manejar eventos de carga
 }
